@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + TS</title>
+  </head>
+  <body>
+    <app-root></app-root>
+    <script type="module" src="/src/main.ts"></script>
+    <script>
+      function myCallback(data) {
+        console.log(data)
+      }
+
+      // Aguarde o carregamento do DOM
+      document.addEventListener('DOMContentLoaded', () => {
+        // Seleciona o Web Component
+        const appRoot = document.querySelector('app-root')
+
+        // Associa a função callback
+        if (appRoot) {
+          // @ts-ignore
+          appRoot.callback = myCallback
+        }
+      })
+    </script>
+  </body>
+</html>
